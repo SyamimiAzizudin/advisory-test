@@ -1,0 +1,22 @@
+.col-md-12 .container {
+	margin: 60px 0;
+}
+ul.nav.navbar-nav {
+	padding: 10px
+}
+.navbar-light .navbar-nav .nav-link:hover {
+	background: #fff;
+}
+.form-check label.form-check-label {
+	padding-left: 20px;
+}
+
+/* home page */
+.menu-btn {
+	padding: 30px 0;
+}
+.menu-btn .col-btn {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
