@@ -16,21 +16,30 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/home') }}">
-                    Advisory Test
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    
+                    <!-- Collapsed Hamburger -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="{{ url('/home') }}">
+                        Advisory Test
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         <li class="nav-item">
@@ -54,21 +63,21 @@
                                 @endif
                             </li>
                         @else
-                            <li>  
-                                <a href="{{ route('logout') }}" 
+                            <li class="nav-item">  
+                                <a class="nav-link" href="{{ route('logout') }}" 
                                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                     Hi {{ Auth::user()->email }}, Logout
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                            {{ csrf_field() }}
+                                    {{ csrf_field() }}
                                 </form>
                             </li>
                         @endguest
                     </ul>
                 </div>
             </div>
-        </nav><!-- nav -->
+        </nav><!-- Nav -->
 
         <div class="container">
             <div class="row">
@@ -121,7 +130,7 @@
     <script>
 
         // Script for delete/destroy modal
-        $(document).on("click", "#confirm-modal", function(e) {
+         $(document).on("click", "#confirm-modal", function(e) {
             window.console&&console.log('foo');
             var url = $(this).attr("href");
             window.console&&console.log(url);
