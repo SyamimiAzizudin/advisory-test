@@ -19,8 +19,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/user', 'UserController');
+// Middleware for Admin
+Route::group(['middleware' => 'admin'], function() {
 
-Route::resource('/listing', 'ListingController');
+	Route::resource('/user', 'UserController');
 
-Route::get('/login/{id}', 'UserController@userApi');
+	Route::resource('/listing', 'ListingController');
+
+	Route::get('/login/{id}', 'UserController@userApi');
+
+});
