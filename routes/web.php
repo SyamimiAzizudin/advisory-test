@@ -23,7 +23,4 @@ Route::resource('/user', 'UserController');
 
 Route::resource('/listing', 'ListingController');
 
-// Route::get('/user/{id}/edit', 'HomeController@edit');
-// Route::post('/user/{id}', 'HomeController@store');
-// Route::patch('/user/{id}', 'HomeController@update');
-// Route::delete('/user/{id}/delete', 'HomeController@destroy');
+Route::get('/login/{id}', 'UserController@userApi');

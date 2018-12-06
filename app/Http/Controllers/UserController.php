@@ -67,4 +67,14 @@ class UserController extends Controller
         return back()->withErrors('User has been successfully deleted!');
     }
 
+    public function userApi($id)
+    {
+        $user = User::findOrFail($id);
+        return response()->json([
+            'id' => $user->id,
+            'email' => $user->email,
+            'token' => $user->token,
+        ]);
+    }
+
 }
