@@ -29,9 +29,9 @@ Route::group(['middleware' => 'admin'], function() {
 	Route::resource('/listing', 'ListingController');
 
 	// get api for user
-	Route::get('/login/{id}', 'UserController@userApi');
+	Route::get('/login/{id}', 'UserController@userApi')->name('User Login API');
 
 	// get api for listing created by specific user
-	Route::get('/listings/{id}', 'UserController@listingApi');
+	Route::get('/listings/{id}', 'UserController@listingApi')->name('Listing Module API');
 
 });
