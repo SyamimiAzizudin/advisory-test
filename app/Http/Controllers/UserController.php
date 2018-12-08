@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -73,8 +74,23 @@ class UserController extends Controller
         return response()->json([
             'id' => $user->id,
             'email' => $user->email,
+            'type of user' => $user->type,
             'token' => $user->token,
         ]);
+    }
+
+    public function listingApi($id)
+    {
+        $listings = Listing::where('user_id', $id)->get();
+        // dd($listings);
+        return response()->json($listings);
+        // foreach ($listings as $list ) {
+        //     return response()->json([
+        //         'id' => $list->id,
+        //         'list_name' => $list->list_name,
+        //         'distance' => $list->distance,
+        //     ]);
+        // }
     }
 
 }

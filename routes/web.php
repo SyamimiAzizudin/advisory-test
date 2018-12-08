@@ -22,10 +22,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Middleware for Admin
 Route::group(['middleware' => 'admin'], function() {
 
+	// crud for user
 	Route::resource('/user', 'UserController');
 
+	// crud for listing
 	Route::resource('/listing', 'ListingController');
 
+	// get api for user
 	Route::get('/login/{id}', 'UserController@userApi');
+
+	// get api for listing created by specific user
+	Route::get('/listings/{id}', 'UserController@listingApi');
 
 });
